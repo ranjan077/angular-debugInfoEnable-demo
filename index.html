@@ -1,0 +1,54 @@
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="test.css">
+</head>
+<body>
+	<div class="container" ng-controller="mycontroller">
+		<table class="table">
+		    <thead>
+		      <tr>
+		      	<th>Sl.No</th>
+		        <th>Name</th>
+		        <th>Gender</th>
+		        <th>Company</th>
+		        <th>Email</th>
+		        <th>Phone</th>
+		        <th>Address</th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		      <tr ng-repeat="person in data" time-taken>
+		      	<td ng-bind="$index"></td>
+		      	<td ng-bind="person.name"></td>
+		      	<td ng-bind="person.gender"></td>
+		      	<td ng-bind="person.company"></td>
+		      	<td ng-bind="person.email"></td>
+		      	<td ng-bind="person.phone"></td>
+		      	<td ng-bind="person.address"></td>
+		      </tr>
+		    </tbody>
+		  </table>
+ 		</table>
+	</div>
+	<div class="result" id="result"><h1></h1></div>
+	<div>
+			<input type="button" id="useapp1" value="Use app1"/><span>App is not configured</span>
+			<input type="button" id="useapp2" value="Use app2"/><span>App is configured</span>
+	</div>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js"></script>
+	<script type="text/javascript" src="test.js"></script>
+	<script type="text/javascript">
+		$('#useapp1').on('click', function() {
+			info = '$compileProvider.debugInfoEnabled(true)';
+			angular.bootstrap($(document), ['app1']);
+		});
+		$('#useapp2').on('click', function() {
+			info = '$compileProvider.debugInfoEnabled(false)';
+			angular.bootstrap($(document), ['app2']);
+		})
+	</script>
+</body>
+</html>
